@@ -1,0 +1,68 @@
+<html>
+<head>
+	<title></title>
+	<style>
+		body, input, button {
+			font-size: 20pt;
+		}
+	</style>
+</head>
+<body>
+ 
+	<form>
+		<input type="text" id="jobTitle" placeholder="Job Title" />
+		<input type="text" id="hometown" placeholder="Hometown" />
+		<input type="text" id="partner" placeholder="Partner" />
+		<input type="text" id="children" placeholder="Children" />
+		<button type="submit" id="submit" >Submit</button>
+	</form>
+	<div id="message"></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ 
+	<script>
+ 
+	/**
+	 * @exercise 1 - lifeLine
+	 * @description takes children, partner's name, hometown, and job
+	 * @returns 'You are a W from X and married to Y  with Z kids.'
+	**/
+ 
+	// Create function with name tellFortune and appropriate parameters
+	// Take 4 arguments: number of children, partner's name, hometown, job title.
+		
+		var lifeLine = function( jobTitle, hometown, partner, children ) {
+ 
+		  // Get first letter and make it lowercase
+		  var firstLetter = jobTitle.charAt(0).toLowerCase();
+		  // Check if first letter of jobTitle is a, e , i, o, or u
+		  if(firstLetter === 'a' || firstLetter === 'e' || firstLetter === 'i' || firstLetter === 'o' || firstLetter === 'u') {
+ 
+			  	var a = 'an ';
+ 
+		  } else {
+		  		var a = 'a ';
+		  }
+ 
+		  // Define string variable that will have that output
+		  var whateverYouWant = "You are " + a + jobTitle + " from " + hometown + " and married to " + partner + " with " + children + " kids."; 
+		  // Return that string
+		  return whateverYouWant;
+ 
+		};
+ 
+	$("#submit").on('click', function (e){
+		e.preventDefault();
+		var jobTitle = $("#jobTitle").val();
+		var hometown = $("#hometown").val();
+		var partner = $("#partner").val();
+		var children = $("#children").val();
+ 
+		var message = lifeLine(jobTitle,hometown,partner,children);
+ 
+		$("#message").html(message);
+	});
+	
+	</script>
+ 
+</body>
+</html>

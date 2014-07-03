@@ -1,0 +1,129 @@
+<html>
+<head>
+	<title></title>
+	<style>
+		body, input, button {
+			font-size: 20pt;
+		}
+	</style>
+</head>
+<body>
+ 
+	<form id="userBday" >
+		<input id="month" placeholder="month" />
+		<input id="day" placeholder="day" />
+		<input id="year" placeholder="year" />
+		<button type="submit">Submit</button>
+	</form>
+ 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ 
+<script>
+/**
+ * Exercise 2 Part 1: ofAge
+**/
+ 
+	// Write a function named `ofAge` that:
+	var ofAge = function(age){
+	    // takes 1 argument: age.
+ 
+	    // calculate if that age is 21 or above.
+		if(age >= 21) {
+			return true;
+		} else {
+			return false;
+		}
+ 
+	};
+    // Output true or false based on if the age is above age
+ 
+	console.assert(ofAge(21) === true);
+	console.assert(ofAge(22) === true);
+	console.assert(ofAge(18) === false);
+	console.assert(ofAge(0) === false);
+	console.assert(ofAge(-2) === false);
+ 
+ 
+/**
+ * Exercise 2 Part 2: getAge
+**/
+ 
+    function calculateAge(birthMonth, birthDay, birthYear) {
+ 
+        // Get Todays Date
+        var todayDate = new Date(),
+            todayYear = todayDate.getFullYear(),
+            todayMonth = todayDate.getMonth(),
+            todayDay = todayDate.getDate();
+ 
+        // Calculate Age
+        var age = todayYear - birthYear;
+ 
+        // Check month discrepancies
+        if (todayMonth < (birthMonth - 1)) {
+            age--;
+        }
+ 
+        // Check day discrepancies
+        if (((birthMonth - 1) == todayMonth) && (todayDay < birthDay)) {
+            age--;
+        }
+ 
+        // @return {Number} age
+        return age;
+    }
+ 
+    console.assert(calculateAge(12,1,1988) === 25);
+    console.assert(calculateAge(6,11,1990) === 24);
+    console.assert(calculateAge(8,19,1988) === 25);
+    console.assert(calculateAge(10,24,1988) === 25);
+    console.assert(calculateAge(4,11,1989) === 25);
+    console.assert(calculateAge(1,1,2000) === 14);
+ 
+ 
+ 
+	/**
+	 * Exercise 2 Part 3: checkOfAge
+	**/
+ 
+	// Write a function named `checkOfAge` that:
+	var checkOfAge = function(month, day, year) {
+	    // takes 3 arguments: month, day, year.
+	    
+	    // Use the calculateAge function to calculate the age.
+	    var age = calculateAge(month,day,year);
+ 
+	    // calculate if that age is 21 or above.
+	    var checkAge = ofAge(age)
+ 
+	    // Output true or false based on if the age is above age
+	    return checkAge;
+ 
+	};
+ 
+	console.assert(checkOfAge(12,01,1988) === true);
+	console.assert(checkOfAge(1,1,1993) === true);
+	console.assert(checkOfAge(1,1,2001) === false);
+ 
+     		console.log(window);
+	
+	$("#userBday").on('submit', function(e){
+     	e.preventDefault();
+ 
+     	var month = $("#month").val()
+     	var day = $("#day").val()
+     	var year = $("#year").val()
+ 
+     	var checkAge = checkOfAge(month,day,year);
+     	if(checkAge){
+			alert('TURN DOWN FOR WHAT!!!');
+			window.location = 'https://www.youtube.com/watch?v=HMUDVMiITOU';
+     	} else {
+     		alert('Sorry. You\'re too young');
+     		window.location = "http://www.nickjr.com";
+     	}
+	});
+ 
+</script>
+</body>
+</html>

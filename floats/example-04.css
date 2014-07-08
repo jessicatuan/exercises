@@ -1,0 +1,41 @@
+/* ---------------------------------------------------------- */
+/* Float Examples for MakerSquare Front-End Class ----------- */
+/* created by Elyse Holladay @elyseholladay ----------------- */
+/* ---------------------------------------------------------- */
+
+/* Example 04 */
+
+.container {
+	width: 1024px;
+	margin: 0 auto;
+}
+
+
+.header {
+	overflow: auto;
+	/*height: 100px;*/
+}/* hint! you have to contain the floated children elements. */
+
+.logo {
+	float: left;/* hint! */
+}
+
+.navigation {
+	float: right;/* hint! */
+}
+
+.sidebar {
+	width: 200px;
+	float: left;
+	height: 300px;
+}
+
+.main-content {
+	width: 784px;
+	float: left;
+	height: 300px;
+}
+
+.footer {
+	clear: both;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Rock Paper Scissors</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    </head>
+    <body>
+
+        <div>
+            <h2> Rock Paper Scissors </h2>
+            
+                <p> Please select one: </p>
+
+                <button id="Rock">Rock</button>
+                <button id="Paper">Paper</button>
+                <button id="Scissors">Scissors</button>
+            
+              
+        </div>
+        <div id="computerthrows"></div> 
+        <p></p>
+        <div id="score"></div> 
+
+
+        <!-- Add your site or application content here -->
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+
+        <script type="text/javascript">
+            
+        var yourScore = 0;
+        var computerScore = 0;
+        var ties = 0;
+
+        function computerChoice (){
+          
+          var computerChoice = Math.random();
+            if (computerChoice <0.34){
+                return "rock";
+            
+            }else if(computerChoice <=0.67){
+                return "paper";
+            
+            }else{
+            return "scissors";
+            }
+        }
+
+        function compare (choice1, choice2) {
+            
+            if (choice1 === choice2) {
+                ties += 1;
+            return("The computer threw the same, result is a tie!");
+            } 
+    
+            if (choice1 === "rock") {
+                if (choice2 === "scissors") {
+                    yourScore += 1;
+                    return("The computer threw Scissors, you win.");
+
+                }else {
+                    computerScore +=1;
+                return("The computer threw paper you lose.");
+                }
+            }
+    
+            if (choice1 === "paper") {
+                if (choice2 === "rock") {
+                    yourScore += 1;
+                    return("The computer threw rock you win.");
+                } else {
+                    computerScore +=1;
+                    return ("The computer threw scissors you lose");
+                }
+            }
+    
+            if (choice1 === "scissors") {
+                if (choice2 === "paper") {
+                    yourScore +=1;
+                    return("The computer threw paper you win.");
+                } else {
+                    computerScore +=1;
+                    return ("The computer threw rock you lose");
+                }
+            }
+    
+        };
+         
+
+            // Event Handler
+            $("#Rock").on('click', function (e) {
+                e.preventDefault();
+            var result = compare("rock", computerChoice());
+            $("#computerthrows").html(result);
+            $("#score").html("All time Score: " + yourScore + " - " + computerScore + " - " + ties);
+            });
+
+            $("#Paper").on('click', function (e) {
+                e.preventDefault();
+            var result = compare("paper", computerChoice());
+            $("#computerthrows").html(result);
+            $("#score").html("All time Score: " + yourScore + " - " + computerScore + " - " + ties);
+            });
+
+            $("#Scissors").on('click', function (e) {
+                e.preventDefault();
+            var result = compare("scissors", computerChoice());
+            $("#computerthrows").html(result);
+            $("#score").html("All time Score: " + yourScore + " - " + computerScore + " - " + ties);
+            });
+
+
+        </script>
+    </body>
+</html>

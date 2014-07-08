@@ -1,4 +1,4 @@
-<<html>
+<html>
 <head>
 	<title>Show Friends Exercise</title>
 </head>
@@ -6,6 +6,9 @@
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
 <body>
+
+	<button id="add">Add Friend</button>
+
 	<script type="text/javascript">
 
 
@@ -28,6 +31,19 @@ list = list + '</ul>';
 
 // Use jQuery to select the body tag on the index and append the finish table string
 $("body").append(list);
+
+function addFriend(newFriend){
+	friends.push(newFriend);
+}
+
+function removeFriend(loseFriend){
+	friends.splice(loseFriend,1);
+}
+
+$("button").on("click",function(e)){
+	e.preventDefault();
+	addFriend()
+}
 
 	</script>
 

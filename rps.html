@@ -16,9 +16,9 @@
             
                 <p> Please select one: </p>
 
-                <button id="Rock">Rock</button>
-                <button id="Paper">Paper</button>
-                <button id="Scissors">Scissors</button>
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
             
               
         </div>
@@ -92,6 +92,7 @@
     
         };
          
+        console.time('My kewl timer');
 
             // Event Handler
             $("button").on('click', function (e) {
@@ -100,6 +101,8 @@
             $("#computerthrows").html(result);
             $("#score").html("All time Score: " + yourScore + " - " + computerScore + " - " + ties);
             });
+
+        console.timeEnd('My kewl timer');
 
             // $("#Paper").on('click', function (e) {
             //     e.preventDefault();

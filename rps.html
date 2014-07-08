@@ -94,26 +94,26 @@
          
 
             // Event Handler
-            $("#Rock").on('click', function (e) {
+            $("button").on('click', function (e) {
                 e.preventDefault();
-            var result = compare("rock", computerChoice());
+            var result = compare(this.id, computerChoice());
             $("#computerthrows").html(result);
             $("#score").html("All time Score: " + yourScore + " - " + computerScore + " - " + ties);
             });
 
-            $("#Paper").on('click', function (e) {
-                e.preventDefault();
-            var result = compare("paper", computerChoice());
-            $("#computerthrows").html(result);
-            $("#score").html("All time Score: " + yourScore + " - " + computerScore + " - " + ties);
-            });
+            // $("#Paper").on('click', function (e) {
+            //     e.preventDefault();
+            // var result = compare("paper", computerChoice());
+            // $("#computerthrows").html(result);
+            // $("#score").html("All time Score: " + yourScore + " - " + computerScore + " - " + ties);
+            // });
 
-            $("#Scissors").on('click', function (e) {
-                e.preventDefault();
-            var result = compare("scissors", computerChoice());
-            $("#computerthrows").html(result);
-            $("#score").html("All time Score: " + yourScore + " - " + computerScore + " - " + ties);
-            });
+            // $("#Scissors").on('click', function (e) {
+            //     e.preventDefault();
+            // var result = compare("scissors", computerChoice());
+            // $("#computerthrows").html(result);
+            // $("#score").html("All time Score: " + yourScore + " - " + computerScore + " - " + ties);
+            // });
 
 
         </script>

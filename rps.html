@@ -56,37 +56,37 @@
             
             if (choice1 === choice2) {
                 ties += 1;
-            return("The computer threw the same, result is a tie!");
+            return("The computer threw the same, it's a tie.");
             } 
     
             if (choice1 === "rock") {
                 if (choice2 === "scissors") {
                     yourScore += 1;
-                    return("The computer threw Scissors, you win.");
+                    return("The computer threw scissors, you win.");
 
                 }else {
                     computerScore +=1;
-                return("The computer threw paper you lose.");
+                return("The computer threw paper, you lose.");
                 }
             }
     
             if (choice1 === "paper") {
                 if (choice2 === "rock") {
                     yourScore += 1;
-                    return("The computer threw rock you win.");
+                    return("The computer threw rock, you win.");
                 } else {
                     computerScore +=1;
-                    return ("The computer threw scissors you lose");
+                    return ("The computer threw scissors, you lose");
                 }
             }
     
             if (choice1 === "scissors") {
                 if (choice2 === "paper") {
                     yourScore +=1;
-                    return("The computer threw paper you win.");
+                    return("The computer threw paper, you win.");
                 } else {
                     computerScore +=1;
-                    return ("The computer threw rock you lose");
+                    return ("The computer threw rock, you lose");
                 }
             }
     
